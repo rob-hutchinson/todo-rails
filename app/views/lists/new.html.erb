@@ -1,0 +1,15 @@
+<h1>Made it here, now...on to the list.</h1>
+
+<% if @list.errors.any? %>
+  <ul>
+  <% @list.errors.full_messages.each do |whoops| %>
+    <li><%= whoops %></li>
+  <% end %>
+  </ul>
+<% end %>
+
+
+<%= form_for @list do |f| %>
+  <%= f.text_field :list_name %>
+  <button>Submit</button>
+<% end %>
