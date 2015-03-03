@@ -18,6 +18,9 @@ Rails.application.routes.draw do
   post '/lists' => 'lists#create', as: 'lists'
   get '/lists/:id' => 'lists#show', as: 'list'
   get '/lists' => 'lists#index', as: 'list_index'
-  get '/lists/:id/new_item' => 'items#new', as: 'new_item'
-  post '/lists/:id/items' => 'items#create', as: 'items'
+  
+  get '/lists/:list_id/new_item' => 'items#new', as: 'new_item'
+  post '/lists/:list_id/items' => 'items#create', as: 'items'
+  get '/lists/:list_id/items/:id' => 'items#edit', as: 'item_edit'
+  patch '/items/:id/update' => 'items#update'
 end
