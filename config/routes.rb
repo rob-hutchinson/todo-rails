@@ -17,4 +17,7 @@ Rails.application.routes.draw do
   get '/new_list' => 'lists#new', as: 'new_list'
   post '/lists' => 'lists#create', as: 'lists'
   get '/lists/:id' => 'lists#show', as: 'list'
+  get '/lists' => 'lists#index', as: 'list_index'
+  get '/lists/:id/new_item' => 'items#new', as: 'new_item'
+  post '/lists/:id/items' => 'items#create', as: 'items'
 end
