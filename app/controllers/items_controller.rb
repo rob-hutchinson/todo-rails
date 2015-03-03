@@ -1,11 +1,11 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!
   def new
     @item = Item.new
-  
   end
 
   def create
-    @list =List.find params[:list_id]
+    @list = current_user.lists.find params[:list_id]
     item_params = params[:item]
     @item = Item.new item_name: item_params["item_name"].downcase.capitalize, list_id: params[:list_id]
     if @item.save
