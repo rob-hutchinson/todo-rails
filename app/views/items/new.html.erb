@@ -1,0 +1,14 @@
+<h1>Please enter the new item for <%= List.find(params[:id]).list_name %></h1>
+
+<% if @item.errors.any? %>
+  <ul>
+  <% @item.errors.full_messages.each do |whoops| %>
+    <li><%= whoops %></li>
+  <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @item do |f| %>
+  <%= f.text_field :item_name %>
+  <button>Submit</button>
+<% end %>
