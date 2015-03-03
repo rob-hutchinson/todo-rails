@@ -12,6 +12,16 @@
 <%= link_to "Add List", new_list_path %>
 <%= link_to "Lists!", list_index_path %>
 
+<% if current_user %>
+<span><%= current_user.email %></span>
+<%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+<% else %>
+<%= link_to "Sign in", new_user_session_path %>
+<% end %>
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
 <%= yield %>
 
 </body>
