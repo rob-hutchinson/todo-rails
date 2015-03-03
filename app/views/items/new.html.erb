@@ -1,4 +1,4 @@
-<h1>Please enter the new item for <%= List.find(params[:id]).list_name %></h1>
+<h1>Please enter the new item for <%= List.find(params[:list_id]).list_name %></h1>
 
 <% if @item.errors.any? %>
   <ul>

@@ -1,11 +1,17 @@
 <h2><%= @list.list_name %></h2>
 
-
-<button><%= link_to 'Add Item', new_item_path %></button>
-
-<ul>
-<% @list.items.each do |item| %>
-<li><%= item.item_name.downcase.capitalize %></li> 
+<button><%= link_to 'Add Item', new_item_path(@list) %></button>
+<br><br>
+<table border="2">
+  <th>Item</th>
+  <th>Due Date</th>
+  <th>Done?</th>
+    <% @items.each do |item| %>
+  <tr>
+    <td><%= link_to item.item_name.downcase.capitalize, item_edit_path(@list.id, item.id) %></td>
+    <td><%= item.due_date %></td>
+    <td><%= item.done %></td>
+  </tr>
 <% end %>
-</ul>
+</table>
 

@@ -1,0 +1,7 @@
+<h1>Please edit <%= @item.item_name %>:</h1>
+
+<%= form_for @item, url: "/items/#{params[:id]}/update" do |f| %>
+  <%= f.label :done %><%= check_box_tag :done %>
+  <%= f.label :due_date %> <%= f.text_field :due_date %> 
+  <br><button>Submit</button>
+<% end %>
