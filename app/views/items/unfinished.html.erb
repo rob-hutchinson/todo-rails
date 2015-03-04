@@ -1,0 +1,12 @@
+<table border="2">
+  <th>Item</th>
+  <th>Due Date</th>
+  <th>Done?</th>
+    <% @items.each do |item| %>
+  <tr>
+    <td><%= link_to item.item_name.downcase.capitalize, item_edit_path(item.list_id, item.id) %></td>
+    <td><%= item.due_date %></td>
+    <td><%= item.done %></td>
+  </tr>
+<% end %>
+</table>

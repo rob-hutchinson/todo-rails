@@ -24,4 +24,6 @@ Rails.application.routes.draw do
   post '/lists/:list_id/items' => 'items#create', as: 'items'
   get '/lists/:list_id/items/:id' => 'items#edit', as: 'item_edit'
   patch '/items/:id/update' => 'items#update'
+
+  get '/items/unfinished' => 'items#unfinished'
 end

@@ -30,4 +30,8 @@ class ItemsController < ApplicationController
     @item.update(due_date: item_params[:due_date])
     redirect_to list_path(@item.list_id)
   end
+
+  def unfinished
+    @items = current_user.items.where(done: false)
+  end
 end
