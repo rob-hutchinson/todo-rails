@@ -25,5 +25,6 @@ Rails.application.routes.draw do
   get '/lists/:list_id/items/:id' => 'items#edit', as: 'item_edit'
   patch '/items/:id/update' => 'items#update'
 
-  get '/items/unfinished' => 'items#unfinished'
+  get '/items/unfinished' => 'items#unfinished', as: 'unfinished_item'
+  get '/items/random' => 'items#random', as: 'random_item'
 end
