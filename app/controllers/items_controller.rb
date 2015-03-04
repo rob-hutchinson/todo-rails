@@ -31,6 +31,12 @@ class ItemsController < ApplicationController
     redirect_to list_path(@item.list_id)
   end
 
+  def delete
+    item = Item.find params[:id]
+    item.delete
+    redirect_to :back
+  end
+
   def unfinished
     @items = current_user.items.where(done: false)
   end

@@ -6,12 +6,18 @@
   <th>Item</th>
   <th>Due Date</th>
   <th>Done?</th>
+  <th>Delete</th>
     <% @items.each do |item| %>
   <tr>
     <td><%= link_to item.item_name.downcase.capitalize, item_edit_path(@list.id, item.id) %></td>
     <td><%= item.due_date %></td>
     <td><%= item.done %></td>
+    <td><%= form_tag item_delete_path(item.id), method: :delete do %>
+    <button>DELETE</button></td>
+    <% end %>
   </tr>
+
 <% end %>
+
 </table>
 
