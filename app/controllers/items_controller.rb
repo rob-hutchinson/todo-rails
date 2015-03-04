@@ -34,4 +34,11 @@ class ItemsController < ApplicationController
   def unfinished
     @items = current_user.items.where(done: false)
   end
+
+  def random
+    @item = current_user.items.where.not(due_date: nil, done: true).order("RANDOM()").first
+    if @item == nil
+      @item = current_user.items.where(done: false).order("RANDOM()").first
+    end
+  end
 end
